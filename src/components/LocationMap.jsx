@@ -8,7 +8,7 @@ export default function LocationMap() {
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
-    <Card className="overflow-hidden shadow-lg border-0">
+    <Card className="overflow-hidden shadow-xl border-0 rounded-2xl">
       <CardContent className="p-0">
         <div className="relative">
           <iframe
@@ -26,10 +26,10 @@ export default function LocationMap() {
         
         <div className="p-6 bg-white">
           <Button 
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold"
+            className="w-full bg-brand-navy hover:bg-brand-navy-light text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
             onClick={() => window.open(googleMapsUrl, '_blank')}
           >
-            <ExternalLink className="w-4 h-4 mr-2" />
+            <ExternalLink className="w-5 h-5 mr-2" />
             Get Directions
           </Button>
         </div>

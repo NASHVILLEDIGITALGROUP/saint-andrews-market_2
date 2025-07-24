@@ -59,6 +59,16 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			// Professional brand colors
+  			brand: {
+  				navy: '#1e3a8a',
+  				'navy-light': '#3b82f6',
+  				gold: '#d97706',
+  				'gold-light': '#f59e0b',
+  				'gold-dark': '#b45309',
+  				slate: '#475569',
+  				'slate-light': '#64748b'
   			}
   		},
   		keyframes: {

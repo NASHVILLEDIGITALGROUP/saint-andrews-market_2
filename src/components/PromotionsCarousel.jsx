@@ -41,7 +41,7 @@ export default function PromotionsCarousel() {
 
   return (
     <div className="relative max-w-lg md:max-w-xl lg:max-w-2xl mx-auto py-8">
-      <div className="relative max-w-lg mx-auto overflow-hidden rounded-2xl shadow-lg">
+      <div className="relative max-w-lg mx-auto overflow-hidden rounded-2xl shadow-2xl border-4 border-white">
         {promotions.map((promo, index) => (
           <div
             key={index}
@@ -63,30 +63,30 @@ export default function PromotionsCarousel() {
         variant="ghost"
         size="icon"
         onClick={goToPrevious}
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-200/80 hover:bg-gray-300 rounded-full text-gray-800 shadow-md transition-all duration-300 md:left-[-60px]"
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:left-[-70px] border border-gray-200"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-7 h-7" />
       </Button>
 
       <Button
         variant="ghost"
         size="icon"
         onClick={goToNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-200/80 hover:bg-gray-300 rounded-full text-gray-800 shadow-md transition-all duration-300 md:right-[-60px]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:right-[-70px] border border-gray-200"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-7 h-7" />
       </Button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
         {promotions.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentPromo(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
               index === currentPromo 
-                ? "bg-yellow-400" 
-                : "bg-white/50 hover:bg-white/70"
+                ? "bg-brand-gold shadow-lg scale-110" 
+                : "bg-white/70 hover:bg-white/90 hover:scale-110"
             }`}
           />
         ))}
