@@ -27,7 +27,19 @@ function _getCurrentPage(url) {
         urlLastPart = urlLastPart.split('?')[0];
     }
 
-    const pageName = Object.keys(PAGES).find(page => page.toLowerCase() === urlLastPart.toLowerCase());
+    // Handle empty path or root path
+    if (!urlLastPart || urlLastPart === '') {
+        return 'Home';
+    }
+
+    // Map URL paths to page names (case-insensitive)
+    const urlToPageMap = {
+        'home': 'Home',
+        'contact': 'Contact',
+        'gallery': 'Gallery'
+    };
+
+    const pageName = urlToPageMap[urlLastPart.toLowerCase()];
     return pageName || 'Home';
 }
 
@@ -40,9 +52,9 @@ function PagesContent() {
         <Layout currentPageName={currentPage}>
             <Routes>            
                 <Route path="/" element={<Home />} />
-                <Route path="/Home" element={<Home />} />
-                <Route path="/Contact" element={<Contact />} />
-                <Route path="/Gallery" element={<Gallery />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/gallery" element={<Gallery />} />
                 {/* Catch all route for 404 */}
                 <Route path="*" element={<Home />} />
             </Routes>
