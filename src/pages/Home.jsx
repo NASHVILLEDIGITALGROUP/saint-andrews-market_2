@@ -99,17 +99,17 @@ export default function Home() {
                 We offer all fuel grades—from Regular to Premium—ensuring your vehicle gets precisely what it needs. 
                 Our modern pumps provide a quick, clean, and efficient fueling experience every time.
               </p>
-              <div className="grid grid-cols-3 gap-6 pt-6">
-                <div className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="font-bold text-2xl text-brand-navy mb-1">Regular</div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6">
+                <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-100">
+                  <div className="font-bold text-xl sm:text-2xl text-brand-navy mb-1">Regular</div>
                   <div className="text-sm text-brand-slate">87 Octane</div>
                 </div>
-                <div className="text-center p-6 bg-gray-50 rounded-xl border border-gray-100">
-                  <div className="font-bold text-2xl text-brand-navy mb-1">Plus</div>
+                <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-100">
+                  <div className="font-bold text-xl sm:text-2xl text-brand-navy mb-1">Plus</div>
                   <div className="text-sm text-brand-slate">89 Octane</div>
                 </div>
-                <div className="text-center p-6 bg-brand-gold/10 rounded-xl border border-brand-gold/20">
-                  <div className="font-bold text-2xl text-brand-navy mb-1">Premium</div>
+                <div className="text-center p-4 sm:p-6 bg-brand-gold/10 rounded-xl border border-brand-gold/20">
+                  <div className="font-bold text-xl sm:text-2xl text-brand-navy mb-1">Premium</div>
                   <div className="text-sm text-brand-gold-dark font-medium">93 Octane</div>
                 </div>
               </div>
@@ -149,15 +149,15 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <div className="text-center pt-8">
-        <div className="bg-gradient-to-r from-brand-navy to-brand-navy-light rounded-2xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">Everything You Need, All in One Place</h3>
-          <p className="text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
+      <div className="text-center pt-8 px-4">
+        <div className="bg-gradient-to-r from-brand-navy to-brand-navy-light rounded-2xl p-6 sm:p-8 text-white">
+          <h3 className="text-xl sm:text-2xl font-bold mb-4">Everything You Need, All in One Place</h3>
+          <p className="text-base sm:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
             From fresh food to automotive essentials, we've got you covered. 
             Stop by today and discover why Saint Andrews Market is your trusted convenience destination.
           </p>
           <button 
-            className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-6 sm:px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
             onClick={() => handleScrollToSection('location-section')}
           >
             Visit Our Store
@@ -180,33 +180,33 @@ export default function Home() {
             <div className="space-y-8">
               <Card className="p-8 shadow-xl border-0 bg-white rounded-2xl">
                 <CardContent className="p-0 space-y-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-7 h-7 text-brand-navy" />
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-brand-navy" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl text-brand-navy mb-2">Address</h3>
-                      <p className="text-brand-slate text-lg">1725 St Andrews Dr<br />Murfreesboro, TN 37128</p>
+                      <h3 className="font-semibold text-lg sm:text-xl text-brand-navy mb-2">Address</h3>
+                      <p className="text-brand-slate text-lg sm:text-xl font-medium">1725 St Andrews Dr<br />Murfreesboro, TN 37128</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-7 h-7 text-brand-navy" />
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-brand-navy" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl text-brand-navy mb-2">Phone</h3>
-                      <p className="text-brand-slate text-xl font-medium">(615) 896-9879</p>
+                      <h3 className="font-semibold text-lg sm:text-xl text-brand-navy mb-2">Phone</h3>
+                      <p className="text-brand-slate text-lg sm:text-xl font-medium">(615) 896-9879</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-7 h-7 text-brand-navy" />
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-brand-navy" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-xl text-brand-navy mb-3">Hours of Operation</h3>
-                      <div className="space-y-2 text-brand-slate text-lg">
+                      <h3 className="font-semibold text-lg sm:text-xl text-brand-navy mb-3">Hours of Operation</h3>
+                      <div className="space-y-2 text-brand-slate text-lg sm:text-xl font-medium">
                         <p><span className="font-medium">Monday–Saturday:</span> 4 AM–12 AM</p>
                         <p><span className="font-medium">Sunday:</span> 5 AM–12 AM</p>
                       </div>

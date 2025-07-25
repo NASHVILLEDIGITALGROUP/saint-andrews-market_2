@@ -41,17 +41,17 @@ export default function ProductCategories() {
   return (
     <div className="space-y-12">
       {/* Featured Categories */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
         {categories.slice(0, 8).map((category, index) => (
           <div
             key={index}
-            className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200"
+            className="group bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200"
           >
-            <div className="text-center space-y-4">
-              <div className={`w-16 h-16 ${category.color} rounded-xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                <category.icon className="w-8 h-8" />
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 ${category.color} rounded-xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                <category.icon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="font-semibold text-brand-navy text-lg leading-tight group-hover:text-brand-gold transition-colors">
+              <h3 className="font-semibold text-brand-navy text-sm sm:text-lg leading-tight group-hover:text-brand-gold transition-colors">
                 {category.name}
               </h3>
             </div>
@@ -60,17 +60,17 @@ export default function ProductCategories() {
       </div>
 
       {/* Additional Categories */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
         {categories.slice(8).map((category, index) => (
           <div
             key={index + 8}
-            className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200"
+            className="group bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-gray-200"
           >
-            <div className="text-center space-y-4">
-              <div className={`w-16 h-16 ${category.color} rounded-xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                <category.icon className="w-8 h-8" />
+            <div className="text-center space-y-3 sm:space-y-4">
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 ${category.color} rounded-xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                <category.icon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-              <h3 className="font-semibold text-brand-navy text-lg leading-tight group-hover:text-brand-gold transition-colors">
+              <h3 className="font-semibold text-brand-navy text-sm sm:text-lg leading-tight group-hover:text-brand-gold transition-colors">
                 {category.name}
               </h3>
             </div>

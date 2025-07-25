@@ -63,18 +63,18 @@ export default function PromotionsCarousel() {
         variant="ghost"
         size="icon"
         onClick={goToPrevious}
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:left-[-70px] border border-gray-200"
+        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:left-[-70px] border border-gray-200"
       >
-        <ChevronLeft className="w-7 h-7" />
+        <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
       </Button>
 
       <Button
         variant="ghost"
         size="icon"
         onClick={goToNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:right-[-70px] border border-gray-200"
+        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 bg-white/90 hover:bg-white rounded-full text-brand-navy shadow-lg transition-all duration-300 md:right-[-70px] border border-gray-200"
       >
-        <ChevronRight className="w-7 h-7" />
+        <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
       </Button>
 
       {/* Dots Indicator */}
