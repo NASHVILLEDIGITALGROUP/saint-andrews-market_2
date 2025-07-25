@@ -55,7 +55,7 @@ function PagesContent() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/gallery" element={<Gallery />} />
-                {/* Catch all route for 404 */}
+                {/* Catch all route - redirect to home for any unmatched routes */}
                 <Route path="*" element={<Home />} />
             </Routes>
         </Layout>
