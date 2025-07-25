@@ -1,6 +1,6 @@
 
 import React from "react";
-import { MapPin, Phone, Clock, Star, Fuel, ShoppingCart, Coffee, Instagram, Facebook, Youtube } from "lucide-react";
+import { MapPin, Phone, Clock, Star, Fuel, ShoppingCart, Coffee, Instagram, Facebook, Youtube, Zap, Package, Utensils } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -57,7 +57,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-xl md:text-2xl text-brand-slate leading-relaxed max-w-4xl mx-auto">
-              Your premier destination for quality fuel, fresh food, and exceptional service. 
+              Your premier destination for <span className="font-semibold text-brand-gold">quality Shell fuel</span>, 
+              <span className="font-semibold text-brand-gold"> fresh snacks</span>, and 
+              <span className="font-semibold text-brand-gold"> daily essentials</span>. 
               Conveniently located in the heart of Murfreesboro, we're committed to providing 
               fast, friendly service to help you get back on your way.
             </p>
@@ -65,15 +67,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Fuel Up Section */}
+      {/* Fuel Up Section - Enhanced */}
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
-              Quality Fuel, <span className="text-brand-gold">Every Time</span>
+              <span className="text-brand-gold">Shell Quality Fuel</span> Every Time
             </h2>
             <p className="text-xl text-brand-slate max-w-3xl mx-auto">
-              Experience Shell's premium fuel quality with our state-of-the-art pumps and competitive pricing
+              Experience Shell's premium fuel quality with our state-of-the-art pumps and competitive pricing. 
+              <span className="font-semibold text-brand-gold"> All grades available 24/7!</span>
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -98,6 +101,7 @@ export default function Home() {
               <p className="text-xl text-brand-slate leading-relaxed">
                 We offer all fuel grades—from Regular to Premium—ensuring your vehicle gets precisely what it needs. 
                 Our modern pumps provide a quick, clean, and efficient fueling experience every time.
+                <span className="font-semibold text-brand-gold"> Open 24/7 for your convenience!</span>
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6">
                 <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-100">
@@ -118,12 +122,95 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Daily Essentials Section - NEW */}
+      <section className="py-24 px-4 bg-gradient-to-br from-brand-gold/5 to-orange-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
+              Daily <span className="text-brand-gold">Essentials</span> & Snacks
+            </h2>
+            <p className="text-xl text-brand-slate max-w-3xl mx-auto">
+              Stock up on your favorite snacks, beverages, and daily necessities. 
+              <span className="font-semibold text-brand-gold"> Fresh, convenient, and always available!</span>
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {/* Snacks & Chips */}
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl overflow-hidden group">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Package className="w-8 h-8 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Snacks & Chips</h3>
+                <p className="text-brand-slate text-sm">Fresh chips, pretzels, nuts, and more. Perfect for on-the-go snacking!</p>
+              </CardContent>
+            </Card>
+
+            {/* Fresh Food */}
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl overflow-hidden group">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Utensils className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Fresh Food</h3>
+                <p className="text-brand-slate text-sm">Hot dogs, sandwiches, fresh bakery items, and ready-to-eat meals.</p>
+              </CardContent>
+            </Card>
+
+            {/* Beverages */}
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl overflow-hidden group">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <Coffee className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Beverages</h3>
+                <p className="text-brand-slate text-sm">Coffee, energy drinks, sodas, water, and fresh juices. Stay refreshed!</p>
+              </CardContent>
+            </Card>
+
+            {/* Daily Essentials */}
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl overflow-hidden group">
+              <CardContent className="p-6 text-center">
+                <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <ShoppingCart className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">Daily Essentials</h3>
+                <p className="text-brand-slate text-sm">Batteries, medicines, personal care items, and household necessities.</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Special Offers */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-gold/20">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-brand-navy mb-4">Special Offers on Daily Essentials</h3>
+              <p className="text-brand-slate mb-6">
+                Save money on your favorite snacks and daily products. 
+                <span className="font-semibold text-brand-gold"> Check our promotions section for the latest deals!</span>
+              </p>
+              <Button 
+                className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={() => {
+                  const element = document.querySelector('#promotions-section');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                View Current Promotions
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Product Categories Section */}
       <section className="py-24 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
-              Convenience & <span className="text-brand-gold">Quality</span>
+              Complete <span className="text-brand-gold">Product Selection</span>
             </h2>
             <p className="text-xl text-brand-slate max-w-3xl mx-auto">
               Everything you need for your journey, from fresh food to everyday essentials
@@ -134,7 +221,7 @@ export default function Home() {
       </section>
 
       {/* Promotions Section */}
-      <section className="py-24 px-4 bg-white">
+      <section id="promotions-section" className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
@@ -153,7 +240,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-brand-navy to-brand-navy-light rounded-2xl p-6 sm:p-8 text-white">
           <h3 className="text-xl sm:text-2xl font-bold mb-4">Everything You Need, All in One Place</h3>
           <p className="text-base sm:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
-            From fresh food to automotive essentials, we've got you covered. 
+            From quality Shell fuel to fresh snacks and daily essentials, we've got you covered. 
             Stop by today and discover why Saint Andrews Market is your trusted convenience destination.
           </p>
           <button 
