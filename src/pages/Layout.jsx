@@ -82,9 +82,9 @@ export default function Layout({ children, currentPageName }) {
                   className="h-14 w-auto"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold leading-tight" style={{ color: '#D97706' }}>
+                  <h2 className="text-2xl font-bold leading-tight" style={{ color: '#D97706' }}>
                     Saint Andrews Market
-                  </h1>
+                  </h2>
                   <p className="text-sm text-brand-slate font-medium">Shell Station & Convenience Store</p>
                 </div>
               </Link>
@@ -99,7 +99,7 @@ export default function Layout({ children, currentPageName }) {
                       className="h-10 w-auto"
                     />
                     <div>
-                      <h1 className="text-lg font-bold" style={{ color: '#D97706' }}>Saint Andrews Market</h1>
+                      <h2 className="text-lg font-bold" style={{ color: '#D97706' }}>Saint Andrews Market</h2>
                     </div>
                 </Link>
              </div>
@@ -184,9 +184,9 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="text-white py-16 px-4 overflow-hidden" style={{ backgroundColor: '#111827' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
             <div className="space-y-6">
-              <div className="flex items-center gap-4 justify-center md:justify-start">
+              <div className="flex items-center gap-4 justify-center">
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/387602c5e_Untitleddesign32.png"
                   alt="Saint Andrews Market Logo"
@@ -197,24 +197,24 @@ export default function Layout({ children, currentPageName }) {
                   <p className="text-white text-sm font-medium">Shell Station & Convenience Store</p>
                 </div>
               </div>
-              <p className="text-white leading-relaxed">
+              <p className="text-white leading-relaxed text-center">
                 Your trusted neighborhood convenience store and Shell gas station in Murfreesboro, TN. 
                 Providing quality fuel, fresh food, and friendly service to our community.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h4 className="font-semibold text-lg text-brand-gold-light">Contact Information</h4>
+              <h4 className="font-semibold text-lg text-brand-gold-light text-center">Contact Information</h4>
               <div className="text-white space-y-4">
-                <div>
+                <div className="text-center">
                   <p className="font-medium text-white mb-1">📍 Address</p>
                   <p className="text-base sm:text-lg font-medium">1725 St Andrews Dr<br />Murfreesboro, TN 37128</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <p className="font-medium text-white mb-1">📞 Phone</p>
                   <p className="text-lg sm:text-xl font-medium">(615) 896-9879</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <p className="font-medium text-white mb-1">🕐 Hours</p>
                   <p className="text-base sm:text-lg font-medium">Mon–Sat: 4 AM–12 AM<br />Sunday: 5 AM–12 AM</p>
                 </div>
@@ -222,11 +222,12 @@ export default function Layout({ children, currentPageName }) {
             </div>
 
             <div className="space-y-6">
-              <h4 className="font-semibold text-lg text-brand-gold-light">Connect With Us</h4>
-              <p className="text-white text-sm sm:text-base">
-                Follow us for updates, promotions, and community news.
+              <h4 className="font-semibold text-lg text-brand-gold-light text-center">Connect With Us</h4>
+              <p className="text-white text-sm sm:text-base text-center">
+                Follow us for updates, promotions,<br />
+                and community news.
               </p>
-              <div className="flex gap-3 sm:gap-4 justify-center md:justify-start">
+              <div className="flex gap-3 sm:gap-4 justify-center">
                 <button 
                   onClick={() => window.open("https://www.facebook.com/saintandrewscitgo", "_blank")}
                   className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
@@ -257,7 +258,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
           </div>
 
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-white">
+          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-white flex flex-col items-center justify-center">
             <p className="text-sm sm:text-base">&copy; 2025 Saint Andrews Market. All rights reserved.</p>
             <p className="mt-2 text-sm sm:text-base">
               Website developed by{" "}

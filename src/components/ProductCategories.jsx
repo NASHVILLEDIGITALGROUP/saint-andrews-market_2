@@ -15,13 +15,11 @@ import {
   Snowflake,
   Flame,
   CreditCard,
-  Zap,
-  Fuel
+  Zap
 } from "lucide-react";
 
 export default function ProductCategories() {
   const categories = [
-    { name: "Shell Fuel", icon: Fuel, color: "bg-yellow-50 text-yellow-600 border-yellow-200", featured: true },
     { name: "Fresh Food & Bakery", icon: Croissant, color: "bg-orange-50 text-orange-600 border-orange-200", featured: true },
     { name: "Snacks & Chips", icon: Cookie, color: "bg-amber-50 text-amber-600 border-amber-200", featured: true },
     { name: "Beverages & Drinks", icon: Coffee, color: "bg-blue-50 text-blue-600 border-blue-200", featured: true },
@@ -29,7 +27,7 @@ export default function ProductCategories() {
     { name: "Chocolates & Candy", icon: Candy, color: "bg-pink-50 text-pink-600 border-pink-200", featured: true },
     { name: "Auto Care", icon: Car, color: "bg-gray-50 text-gray-600 border-gray-200", featured: true },
     { name: "Ice Cream", icon: IceCream, color: "bg-purple-50 text-purple-600 border-purple-200", featured: true },
-    { name: "Bread & Rolls", icon: Wheat, color: "bg-amber-50 text-amber-600 border-amber-200" },
+    { name: "Bread & Rolls", icon: Wheat, color: "bg-amber-50 text-amber-600 border-amber-200", featured: true },
     { name: "Nuts & Seeds", icon: Nut, color: "bg-stone-50 text-stone-600 border-stone-200" },
     { name: "Fresh Juices", icon: Apple, color: "bg-lime-50 text-lime-600 border-lime-200" },
     { name: "Medicines", icon: Pill, color: "bg-red-50 text-red-600 border-red-200" },
@@ -45,7 +43,7 @@ export default function ProductCategories() {
 
   return (
     <div className="space-y-12">
-      {/* Featured Categories - Gas, Food, Snacks, Essentials */}
+      {/* Featured Categories - Food, Snacks, Essentials */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
         {featuredCategories.map((category, index) => (
           <div

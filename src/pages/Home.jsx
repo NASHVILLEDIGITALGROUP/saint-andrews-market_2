@@ -1,20 +1,98 @@
 
-import React from "react";
-import { MapPin, Phone, Clock, Star, Fuel, ShoppingCart, Coffee, Instagram, Facebook, Youtube, Zap, Package, Utensils } from "lucide-react";
+import React, { useState } from "react";
+import { MapPin, Phone, Clock, Star, Fuel, ShoppingCart, Coffee, Instagram, Facebook, Youtube, Zap, Package, Utensils, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import ProductCategories from "../components/ProductCategories";
 import PromotionsCarousel from "../components/PromotionsCarousel";
 import LocationMap from "../components/LocationMap";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 
 export default function Home() {
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
   const handleScrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const reviews = [
+    {
+      id: 1,
+      title: "Great Neighborhood Spot!",
+      content: "I love having Saint Andrews Market nearby. It's my go-to for quick snacks, drinks, and even a fresh bite when I'm on the go. The staff is always polite and welcoming. Definitely a place that feels like part of the community.",
+      author: "Sarah T.",
+      rating: 5
+    },
+    {
+      id: 2,
+      title: "Clean, Convenient, and Friendly",
+      content: "This place has everything I need—great gas prices, clean restrooms, and a surprisingly good selection of groceries and essentials. It's always a smooth, fast stop on my way home.",
+      author: "Mike R.",
+      rating: 5
+    },
+    {
+      id: 3,
+      title: "Best Quick Stop in the Area!",
+      content: "Saint Andrews Market is perfect for a quick stop. The hot food is fresh, the shelves are stocked, and the customer service is top-notch. It's become my regular spot for gas and snacks.",
+      author: "Latoya G.",
+      rating: 5
+    },
+    {
+      id: 4,
+      title: "Always a Pleasant Experience",
+      content: "Every time I come in, I'm greeted with a smile. It's clean, organized, and has a little bit of everything. Love supporting a local business that actually cares.",
+      author: "Chris D.",
+      rating: 5
+    },
+    {
+      id: 5,
+      title: "Highly Recommend!",
+      content: "Saint Andrews Market is a hidden gem! Great selection, reasonable prices, and the staff goes above and beyond to help. Whether I need gas, groceries, or a quick meal, they've got it all.",
+      author: "Priya K.",
+      rating: 5
+    }
+  ];
+
+  // Get visible reviews with proper cycling
+  const getVisibleReviews = () => {
+    const isMobile = window.innerWidth < 768; // md breakpoint
+    const reviewsPerView = isMobile ? 1 : 2;
+    
+    if (currentReviewIndex + reviewsPerView <= reviews.length) {
+      return reviews.slice(currentReviewIndex, currentReviewIndex + reviewsPerView);
+    } else {
+      // Handle the last slide: show last review + first review(s)
+      if (isMobile) {
+        return [reviews[currentReviewIndex]];
+      } else {
+        return [reviews[currentReviewIndex], reviews[0]];
+      }
+    }
+  };
+
+  const nextReviews = () => {
+    const isMobile = window.innerWidth < 768;
+    const reviewsPerView = isMobile ? 1 : 2;
+    
+    setCurrentReviewIndex((prevIndex) => 
+      prevIndex + reviewsPerView >= reviews.length ? 0 : prevIndex + reviewsPerView
+    );
+  };
+
+  const prevReviews = () => {
+    const isMobile = window.innerWidth < 768;
+    const reviewsPerView = isMobile ? 1 : 2;
+    
+    setCurrentReviewIndex((prevIndex) => 
+      prevIndex - reviewsPerView < 0 ? Math.max(0, reviews.length - reviewsPerView) : prevIndex - reviewsPerView
+    );
+  };
+
+  const visibleReviews = getVisibleReviews();
 
   return (
     <div className="min-h-screen bg-white">
@@ -57,9 +135,9 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-xl md:text-2xl text-brand-slate leading-relaxed max-w-4xl mx-auto">
-              Your premier destination for <span className="font-semibold text-brand-gold">quality Shell fuel</span>, 
-              <span className="font-semibold text-brand-gold"> fresh snacks</span>, and 
-              <span className="font-semibold text-brand-gold"> daily essentials</span>. 
+              Your premier destination for <span className="font-semibold text-brand-gold">Quality Shell Fuel</span>, 
+              <span className="font-semibold text-brand-gold"> Fresh Snacks</span>, and 
+              <span className="font-semibold text-brand-gold"> Daily Essentials</span>. 
               Conveniently located in the heart of Murfreesboro, we're committed to providing 
               fast, friendly service to help you get back on your way.
             </p>
@@ -76,7 +154,6 @@ export default function Home() {
             </h2>
             <p className="text-xl text-brand-slate max-w-3xl mx-auto">
               Experience Shell's premium fuel quality with our state-of-the-art pumps and competitive pricing. 
-              <span className="font-semibold text-brand-gold"> All grades available 24/7!</span>
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -101,7 +178,8 @@ export default function Home() {
               <p className="text-xl text-brand-slate leading-relaxed">
                 We offer all fuel grades—from Regular to Premium—ensuring your vehicle gets precisely what it needs. 
                 Our modern pumps provide a quick, clean, and efficient fueling experience every time.
-                <span className="font-semibold text-brand-gold"> Open 24/7 for your convenience!</span>
+                <span className="font-semibold text-brand-gold"> Shell's advanced fuel technology</span> helps improve engine performance, 
+                reduce emissions, and protect your engine from harmful deposits.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6">
                 <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-100">
@@ -126,12 +204,12 @@ export default function Home() {
       <section className="py-24 px-4 bg-gradient-to-br from-brand-gold/5 to-orange-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
-              Daily <span className="text-brand-gold">Essentials</span> & Snacks
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
+              Daily <span className="text-brand-gold">Essentials</span> & <span className="text-brand-gold">Snacks</span>
             </h2>
             <p className="text-xl text-brand-slate max-w-3xl mx-auto">
-              Stock up on your favorite snacks, beverages, and daily necessities. 
-              <span className="font-semibold text-brand-gold"> Fresh, convenient, and always available!</span>
+              Stock up on your favorite snacks, beverages, and daily necessities.<br />
+              <span className="font-semibold text-brand-gold">Fresh, convenient, and always available!</span>
             </p>
           </div>
           
@@ -139,8 +217,19 @@ export default function Home() {
             {/* Snacks & Chips */}
             <Card className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 rounded-2xl overflow-hidden group">
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <Package className="w-8 h-8 text-amber-600" />
+                <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                    <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+                    <circle cx="16" cy="8" r="1.5" fill="currentColor"/>
+                    <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+                    <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                    <path d="M12 2 L12 4" strokeWidth="2"/>
+                    <path d="M12 20 L12 22" strokeWidth="2"/>
+                    <path d="M2 12 L4 12" strokeWidth="2"/>
+                    <path d="M20 12 L22 12" strokeWidth="2"/>
+                  </svg>
                 </div>
                 <h3 className="text-xl font-bold text-brand-navy mb-2">Snacks & Chips</h3>
                 <p className="text-brand-slate text-sm">Fresh chips, pretzels, nuts, and more. Perfect for on-the-go snacking!</p>
@@ -235,23 +324,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <div className="text-center pt-8 px-4">
-        <div className="bg-gradient-to-r from-brand-navy to-brand-navy-light rounded-2xl p-6 sm:p-8 text-white">
-          <h3 className="text-xl sm:text-2xl font-bold mb-4">Everything You Need, All in One Place</h3>
-          <p className="text-base sm:text-lg text-gray-200 mb-6 max-w-2xl mx-auto">
-            From quality Shell fuel to fresh snacks and daily essentials, we've got you covered. 
-            Stop by today and discover why Saint Andrews Market is your trusted convenience destination.
-          </p>
-          <button 
-            className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-6 sm:px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            onClick={() => handleScrollToSection('location-section')}
-          >
-            Visit Our Store
-          </button>
-        </div>
-      </div>
-
       {/* Location Section */}
       <section id="location-section" className="py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
@@ -310,8 +382,195 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Section */}
+      {/* FAQ Section */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
+              Frequently Asked <span className="text-brand-gold">Questions</span>
+            </h2>
+            <p className="text-xl text-brand-slate max-w-3xl mx-auto">
+              Find answers to common questions about our products, services, and location
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="item-1" className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <AccordionTrigger className="text-xl md:text-2xl font-bold text-brand-navy hover:text-brand-gold transition-colors duration-300 text-left">
+                What products and services does Saint Andrews Market offer?
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <p className="text-brand-slate text-lg leading-relaxed">
+                  We offer a wide range of essentials including Shell-quality fuel, hot food, snacks, cold beverages, bakery items, tobacco products, vape essentials, fresh juice, lottery tickets, and more. Whether you're fueling up your car or grabbing a quick bite, we've got you covered.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <AccordionTrigger className="text-xl md:text-2xl font-bold text-brand-navy hover:text-brand-gold transition-colors duration-300 text-left">
+                Where is Saint Andrews Market located?
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <p className="text-brand-slate text-lg leading-relaxed">
+                  We are conveniently located at{" "}
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=1725%20St%20Andrews%20Dr%2C%20Murfreesboro%2C%20TN%2037128"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-gold hover:text-brand-gold-dark underline font-medium transition-colors duration-200"
+                  >
+                    1725 St Andrews Dr, Murfreesboro, TN 37128
+                  </a>
+                  —easily accessible from Veterans Parkway and close to residential communities in West Murfreesboro.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <AccordionTrigger className="text-xl md:text-2xl font-bold text-brand-navy hover:text-brand-gold transition-colors duration-300 text-left">
+                What are your hours of operation?
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <p className="text-brand-slate text-lg leading-relaxed">
+                  We're open Monday to Saturday from 4:00 AM to 12:00 AM, and Sunday from 5:00 AM to 12:00 AM, so you can stop by early morning or late night for fuel, snacks, or everyday essentials.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <AccordionTrigger className="text-xl md:text-2xl font-bold text-brand-navy hover:text-brand-gold transition-colors duration-300 text-left">
+                Do you sell food and drinks?
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <p className="text-brand-slate text-lg leading-relaxed">
+                  Yes! We offer fresh hot food, snacks, chips, cold drinks, candy, bakery items, and even fresh juice. Whether you're grabbing breakfast on the go or a late-night snack, we have delicious options ready for you.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="bg-white border border-gray-200 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-4">
+              <AccordionTrigger className="text-xl md:text-2xl font-bold text-brand-navy hover:text-brand-gold transition-colors duration-300 text-left">
+                Is Saint Andrews Market locally owned and operated?
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <p className="text-brand-slate text-lg leading-relaxed">
+                  Yes — we're proud to be a community-driven business, focused on providing friendly service and convenience to Murfreesboro residents. We're more than just a gas station — we're your neighborhood market.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section - Carousel */}
       <section className="py-24 px-4 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 bg-brand-gold/10 px-6 py-3 rounded-full border border-brand-gold/20 mb-6">
+              <Star className="w-5 h-5 text-brand-gold" />
+              <span className="text-brand-gold font-semibold text-sm uppercase tracking-wide">Customer Testimonials</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
+              <span className="block">What Our</span>
+              <span className="block text-brand-gold">Customers Say</span>
+            </h2>
+            <p className="text-xl text-brand-slate max-w-3xl mx-auto leading-relaxed">
+              Don't just take our word for it - hear from our satisfied customers
+            </p>
+          </div>
+          
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevReviews}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-14 h-14 bg-white/90 backdrop-blur-sm shadow-xl rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 border border-gray-200/50 hover:scale-110 hover:shadow-2xl group"
+            >
+              <ChevronLeft className="w-6 h-6 text-brand-navy group-hover:text-brand-gold transition-colors duration-300" />
+            </button>
+            
+            <button
+              onClick={nextReviews}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-14 h-14 bg-white/90 backdrop-blur-sm shadow-xl rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 border border-gray-200/50 hover:scale-110 hover:shadow-2xl group"
+            >
+              <ChevronRight className="w-6 h-6 text-brand-navy group-hover:text-brand-gold transition-colors duration-300" />
+            </button>
+
+            {/* Reviews Container */}
+            <div className="overflow-hidden px-4 md:px-20 pb-8">
+              <div className="flex gap-4 md:gap-8 justify-center items-stretch">
+                {visibleReviews.map((review, index) => (
+                  <div 
+                    key={review.id} 
+                    className="w-full max-w-sm md:max-w-lg flex-shrink-0 transform transition-all duration-700 ease-out flex"
+                    style={{
+                      animationDelay: `${index * 100}ms`
+                    }}
+                  >
+                    <Card className="bg-white/80 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500 border-0 rounded-3xl overflow-hidden group transform hover:scale-105 relative flex-1 flex flex-col">
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 via-transparent to-brand-navy/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <CardContent className="p-6 md:p-8 relative flex-1 flex flex-col">
+                        {/* Quote icon */}
+                        <div className="absolute top-4 md:top-6 right-4 md:right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                          <svg className="w-8 md:w-12 h-8 md:h-12 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                          </svg>
+                        </div>
+
+                        <div className="flex items-center gap-1 mb-4 md:mb-6">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 md:w-5 h-4 md:h-5 text-brand-gold fill-current drop-shadow-sm" />
+                          ))}
+                        </div>
+                        
+                        <h3 className="text-lg md:text-xl font-bold text-brand-navy mb-3 md:mb-4 group-hover:text-brand-gold transition-colors duration-300 leading-tight">
+                          {review.title}
+                        </h3>
+                        
+                        <p className="text-brand-slate leading-relaxed mb-4 md:mb-6 text-base md:text-lg italic flex-1">
+                          "{review.content}"
+                        </p>
+                        
+                        <div className="flex items-center justify-between pt-3 md:pt-4 border-t-2 border-gray-200">
+                          <div className="flex items-center gap-2 md:gap-3">
+                            <div className="w-8 md:w-10 h-8 md:h-10 bg-gradient-to-br from-brand-gold to-brand-gold-dark rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-xs md:text-sm">
+                                {review.author.split(' ').map(n => n[0]).join('')}
+                              </span>
+                            </div>
+                            <div>
+                              <span className="text-xs md:text-sm font-semibold text-brand-navy">{review.author}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Enhanced Dots Indicator */}
+            <div className="flex justify-center mt-12 md:mt-16 gap-2 md:gap-3">
+              {Array.from({ length: Math.ceil(reviews.length / (window.innerWidth < 768 ? 1 : 2)) }, (_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentReviewIndex(i * (window.innerWidth < 768 ? 1 : 2))}
+                  className={`w-3 md:w-4 h-3 md:h-4 rounded-full transition-all duration-300 hover:scale-125 ${
+                    currentReviewIndex === i * (window.innerWidth < 768 ? 1 : 2)
+                      ? 'bg-brand-gold scale-125 shadow-lg shadow-brand-gold/30' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section className="py-16 md:py-24 px-4 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-8">
             <Star className="w-10 h-10 text-brand-gold hidden md:block" />
