@@ -28,7 +28,7 @@ function _getCurrentPage(url) {
     }
 
     const pageName = Object.keys(PAGES).find(page => page.toLowerCase() === urlLastPart.toLowerCase());
-    return pageName || Object.keys(PAGES)[0];
+    return pageName || 'Home';
 }
 
 // Create a wrapper component that uses useLocation inside the Router context
@@ -39,16 +39,12 @@ function PagesContent() {
     return (
         <Layout currentPageName={currentPage}>
             <Routes>            
-                
-                    <Route path="/" element={<Home />} />
-                
-                
+                <Route path="/" element={<Home />} />
                 <Route path="/Home" element={<Home />} />
-                
                 <Route path="/Contact" element={<Contact />} />
-                
                 <Route path="/Gallery" element={<Gallery />} />
-                
+                {/* Catch all route for 404 */}
+                <Route path="*" element={<Home />} />
             </Routes>
         </Layout>
     );

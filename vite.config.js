@@ -10,6 +10,13 @@ export default defineConfig({
     host: '0.0.0.0',
     port: process.env.PORT || 10000
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
