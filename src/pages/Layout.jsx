@@ -208,15 +208,15 @@ export default function Layout({ children, currentPageName }) {
               <div className="text-white space-y-4">
                 <div>
                   <p className="font-medium text-white mb-1">📍 Address</p>
-                  <p className="text-sm sm:text-base">1725 St Andrews Dr<br />Murfreesboro, TN 37128</p>
+                  <p className="text-base sm:text-lg font-medium">1725 St Andrews Dr<br />Murfreesboro, TN 37128</p>
                 </div>
                 <div>
                   <p className="font-medium text-white mb-1">📞 Phone</p>
-                  <p className="text-base sm:text-lg">(615) 896-9879</p>
+                  <p className="text-lg sm:text-xl font-medium">(615) 896-9879</p>
                 </div>
                 <div>
                   <p className="font-medium text-white mb-1">🕐 Hours</p>
-                  <p className="text-sm sm:text-base">Mon–Sat: 4 AM–12 AM<br />Sunday: 5 AM–12 AM</p>
+                  <p className="text-base sm:text-lg font-medium">Mon–Sat: 4 AM–12 AM<br />Sunday: 5 AM–12 AM</p>
                 </div>
               </div>
             </div>
