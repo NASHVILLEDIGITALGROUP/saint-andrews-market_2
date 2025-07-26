@@ -4,7 +4,9 @@ import { join } from 'path';
 const configFiles = [
   '_redirects',
   '.htaccess', 
-  'web.config'
+  'web.config',
+  'contact.html',
+  'gallery.html'
 ];
 
 configFiles.forEach(file => {

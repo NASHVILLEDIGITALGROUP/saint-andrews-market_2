@@ -1,1 +1,12 @@
-/*    /index.html   200 
+# Handle client-side routing
+/*    /index.html   200
+
+# Handle specific routes explicitly
+/contact    /index.html   200
+/gallery    /index.html   200
+/home       /index.html   200
+
+# Handle trailing slashes
+/contact/   /index.html   200
+/gallery/   /index.html   200
+/home/      /index.html   200 
