@@ -1,15 +1,2 @@
-# Render SPA routing configuration
-/*    /index.html   200
-
-# Handle specific routes explicitly
-/contact    /index.html   200
-/gallery    /index.html   200
-/home       /index.html   200
-
-# Handle trailing slashes
-/contact/   /index.html   200
-/gallery/   /index.html   200
-/home/      /index.html   200
-
-# Fallback for any other routes
+# SPA routing configuration - all routes serve index.html
 /*    /index.html   200 

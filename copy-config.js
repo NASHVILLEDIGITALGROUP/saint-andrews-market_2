@@ -6,7 +6,8 @@ const configFiles = [
   '.htaccess', 
   'web.config',
   'contact.html',
-  'gallery.html'
+  'gallery.html',
+  'home.html'
 ];
 
 configFiles.forEach(file => {

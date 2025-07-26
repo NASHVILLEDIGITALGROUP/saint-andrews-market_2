@@ -3,21 +3,24 @@ import Home from "./Home";
 import Contact from "./Contact";
 import Gallery from "./Gallery";
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { getCurrentPageFromUrl, parsePathname } from '../utils/routeUtils';
+import { getCurrentPageFromUrl } from '../utils/routeUtils';
 import { useEffect, useState } from 'react';
 
 const PAGES = {
-    
     Home: Home,
-    
     Contact: Contact,
-    
     Gallery: Gallery,
-    
 }
 
 function _getCurrentPage(url) {
-    return parsePathname(url);
+    // Simple path to page mapping
+    const pathMap = {
+        '/': 'Home',
+        '/home': 'Home',
+        '/contact': 'Contact',
+        '/gallery': 'Gallery'
+    };
+    return pathMap[url] || 'Home';
 }
 
 // Create a wrapper component that uses useLocation inside the Router context
@@ -38,28 +41,11 @@ function PagesContent() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/gallery" element={<Gallery />} />
-                {/* Handle any other routes by showing the appropriate page based on URL */}
-                <Route path="*" element={<DynamicRoute />} />
+                {/* Redirect any unknown routes to home */}
+                <Route path="*" element={<Home />} />
             </Routes>
         </Layout>
     );
-}
-
-// Component to handle dynamic routing based on URL
-function DynamicRoute() {
-    const location = useLocation();
-    const currentPage = _getCurrentPage(location.pathname);
-    
-    // Render the appropriate component based on the current page
-    switch (currentPage) {
-        case 'Contact':
-            return <Contact />;
-        case 'Gallery':
-            return <Gallery />;
-        case 'Home':
-        default:
-            return <Home />;
-    }
 }
 
 export default function Pages() {
