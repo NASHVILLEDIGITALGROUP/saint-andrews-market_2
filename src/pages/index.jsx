@@ -3,19 +3,24 @@ import Home from "./Home";
 import Contact from "./Contact";
 import Gallery from "./Gallery";
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { getCurrentPageFromLocation } from '../utils/routeUtils';
-import { useEffect, useState } from 'react';
 
-// Create a wrapper component that uses useLocation inside the Router context
-function PagesContent() {
-    const location = useLocation();
-    const [currentPage, setCurrentPage] = useState('Home');
+// Function to get current page from pathname
+function getCurrentPageFromPathname(pathname) {
+    const pathMap = {
+        '/': 'Home',
+        '/home': 'Home',
+        '/contact': 'Contact',
+        '/gallery': 'Gallery'
+    };
     
-    // Update current page based on location
-    useEffect(() => {
-        const page = getCurrentPageFromLocation(location);
-        setCurrentPage(page);
-    }, [location.pathname]);
+    const cleanPath = pathname.replace(/\/$/, '');
+    return pathMap[cleanPath] || 'Home';
+}
+
+// Component that renders the correct page based on the current route
+function PageRenderer() {
+    const location = useLocation();
+    const currentPage = getCurrentPageFromPathname(location.pathname);
     
     return (
         <Layout currentPageName={currentPage}>
@@ -34,7 +39,7 @@ function PagesContent() {
 export default function Pages() {
     return (
         <Router>
-            <PagesContent />
+            <PageRenderer />
         </Router>
     );
 }
