@@ -1,4 +1,4 @@
-# Handle client-side routing
+# Render SPA routing configuration
 /*    /index.html   200
 
 # Handle specific routes explicitly
@@ -9,4 +9,7 @@
 # Handle trailing slashes
 /contact/   /index.html   200
 /gallery/   /index.html   200
-/home/      /index.html   200 
+/home/      /index.html   200
+
+# Fallback for any other routes
+/*    /index.html   200 
