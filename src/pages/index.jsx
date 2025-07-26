@@ -6,7 +6,7 @@ import Contact from "./Contact";
 
 import Gallery from "./Gallery";
 
-import { HashRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
     
