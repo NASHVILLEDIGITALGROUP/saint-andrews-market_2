@@ -112,13 +112,12 @@ export default function Home() {
                 Your trusted Shell station and convenience store in Murfreesboro, TN
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => handleScrollToSection('location-section')}
+                <a 
+                  href="#location-section"
+                  className="inline-flex items-center justify-center bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get Direction
-                </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -134,21 +133,48 @@ export default function Home() {
                 Saint Andrews Market
               </h2>
             </div>
-            <p className="text-xl md:text-2xl text-brand-slate leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-slate leading-relaxed max-w-4xl mx-auto mb-12">
               Your premier destination for <span className="font-semibold text-brand-gold">Quality Shell Fuel</span>, 
               <span className="font-semibold text-brand-gold"> Fresh Snacks</span>, and 
               <span className="font-semibold text-brand-gold"> Daily Essentials</span>. 
               Conveniently located in the heart of Murfreesboro, we're committed to providing 
               fast, friendly service to help you get back on your way.
             </p>
+            
+            {/* Quick Navigation Links */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <a href="#fuel-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                Shell Fuel
+              </a>
+              <span className="text-gray-400">•</span>
+              <a href="#essentials-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                Daily Essentials
+              </a>
+              <span className="text-gray-400">•</span>
+              <a href="#products-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                Product Selection
+              </a>
+              <span className="text-gray-400">•</span>
+              <a href="#promotions-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                Promotions
+              </a>
+              <span className="text-gray-400">•</span>
+              <a href="#location-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                Location
+              </a>
+              <span className="text-gray-400">•</span>
+              <a href="#faq-section" className="text-brand-navy hover:text-brand-gold transition-colors duration-200 font-medium">
+                FAQ
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Fuel Up Section - Enhanced */}
-      <section className="py-24 px-4 bg-white">
+      <section id="fuel-section" className="py-8 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
               <span className="text-brand-gold">Shell Quality Fuel</span> Every Time
             </h2>
@@ -181,6 +207,11 @@ export default function Home() {
                 <span className="font-semibold text-brand-gold"> Shell's advanced fuel technology</span> helps improve engine performance, 
                 reduce emissions, and protect your engine from harmful deposits.
               </p>
+              <p className="text-brand-slate">
+                <a href="#products-section" className="text-brand-gold hover:text-brand-gold-dark underline font-medium transition-colors duration-200">
+                  View our complete product selection →
+                </a>
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-6">
                 <div className="text-center p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-100">
                   <div className="font-bold text-xl sm:text-2xl text-brand-navy mb-1">Regular</div>
@@ -201,7 +232,7 @@ export default function Home() {
       </section>
 
       {/* Daily Essentials Section - NEW */}
-      <section className="py-24 px-4 bg-gradient-to-br from-brand-gold/5 to-orange-50">
+      <section id="essentials-section" className="py-24 px-4 bg-gradient-to-br from-brand-gold/5 to-orange-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-6">
@@ -276,26 +307,21 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-brand-navy mb-4">Special Offers on Daily Essentials</h3>
               <p className="text-brand-slate mb-6">
                 Save money on your favorite snacks and daily products. 
-                <span className="font-semibold text-brand-gold"> Check our promotions section for the latest deals!</span>
+                <span className="font-semibold text-brand-gold"> Check our <a href="#promotions-section" className="underline hover:text-brand-gold-dark transition-colors duration-200">promotions section</a> for the latest deals!</span>
               </p>
-              <Button 
-                className="bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() => {
-                  const element = document.querySelector('#promotions-section');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <a 
+                href="#promotions-section"
+                className="inline-flex items-center justify-center bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 View Current Promotions
-              </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Product Categories Section */}
-      <section className="py-24 px-4 bg-gray-50">
+      <section id="products-section" className="py-24 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
@@ -332,7 +358,12 @@ export default function Home() {
               Visit Our <span className="text-brand-gold">Location</span>
             </h2>
             <p className="text-xl text-brand-slate max-w-3xl mx-auto">
-              Conveniently located in the heart of Murfreesboro for easy access
+              Conveniently located in the heart of Murfreesboro for easy access.
+            </p>
+            <p className="text-center mt-4">
+              <a href="#faq-section" className="text-brand-gold hover:text-brand-gold-dark underline font-medium transition-colors duration-200">
+                Have questions? Check our FAQ →
+              </a>
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -383,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4 bg-white">
+      <section id="faq-section" className="py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">
@@ -598,6 +629,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
     </div>
   );
 }

@@ -70,7 +70,7 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white shadow-lg fixed w-full top-0 z-50 border-b border-gray-200">
+      <header className="bg-white shadow-lg fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Brand Text (Desktop) */}
