@@ -3,35 +3,18 @@ import Home from "./Home";
 import Contact from "./Contact";
 import Gallery from "./Gallery";
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import { getCurrentPageFromUrl } from '../utils/routeUtils';
+import { getCurrentPageFromLocation } from '../utils/routeUtils';
 import { useEffect, useState } from 'react';
-
-const PAGES = {
-    Home: Home,
-    Contact: Contact,
-    Gallery: Gallery,
-}
-
-function _getCurrentPage(url) {
-    // Simple path to page mapping
-    const pathMap = {
-        '/': 'Home',
-        '/home': 'Home',
-        '/contact': 'Contact',
-        '/gallery': 'Gallery'
-    };
-    return pathMap[url] || 'Home';
-}
 
 // Create a wrapper component that uses useLocation inside the Router context
 function PagesContent() {
     const location = useLocation();
-    const [currentPage, setCurrentPage] = useState(_getCurrentPage(location.pathname));
+    const [currentPage, setCurrentPage] = useState('Home');
     
-    // Handle page refresh and initial load
+    // Update current page based on location
     useEffect(() => {
-        const pageFromUrl = getCurrentPageFromUrl();
-        setCurrentPage(pageFromUrl);
+        const page = getCurrentPageFromLocation(location);
+        setCurrentPage(page);
     }, [location.pathname]);
     
     return (

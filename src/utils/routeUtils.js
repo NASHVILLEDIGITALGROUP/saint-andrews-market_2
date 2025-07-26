@@ -34,4 +34,17 @@ export function getPageComponent(pageName) {
     };
     
     return pageComponents[pageName] || 'Home';
+}
+
+// New function to get current page from React Router location
+export function getCurrentPageFromLocation(location) {
+    const pathMap = {
+        '/': 'Home',
+        '/home': 'Home',
+        '/contact': 'Contact',
+        '/gallery': 'Gallery'
+    };
+    
+    const cleanPath = location.pathname.replace(/\/$/, '');
+    return pathMap[cleanPath] || 'Home';
 } 
