@@ -19,11 +19,12 @@ const PAGES = {
 }
 
 function _getCurrentPage(url) {
+    // Remove trailing slash and query parameters
     if (url.endsWith('/')) {
         url = url.slice(0, -1);
     }
     let urlLastPart = url.split('/').pop();
-    if (urlLastPart.includes('?')) {
+    if (urlLastPart && urlLastPart.includes('?')) {
         urlLastPart = urlLastPart.split('?')[0];
     }
 
